@@ -20,23 +20,23 @@ export interface Villain {
   name: string;
 }
 
-export interface HeroServiceController {
+export interface HeroServiceController<Context extends DataLoaders> {
 
-  findOneHero(request: HeroById): Observable<Hero>;
+  findOneHero(request: HeroById, ctx?: Context): Observable<Hero>;
 
-  findOneVillain(request: VillainById): Observable<Villain>;
+  findOneVillain(request: VillainById, ctx?: Context): Observable<Villain>;
 
-  findManyVillain(request: Observable<VillainById>): Observable<Villain>;
+  findManyVillain(request: Observable<VillainById>, ctx?: Context): Observable<Villain>;
 
 }
 
-export interface HeroServiceClient {
+export interface HeroServiceClient<Context extends DataLoaders> {
 
-  findOneHero(request: HeroById): Observable<Hero>;
+  findOneHero(request: HeroById, ctx?: Context): Observable<Hero>;
 
-  findOneVillain(request: VillainById): Observable<Villain>;
+  findOneVillain(request: VillainById, ctx?: Context): Observable<Villain>;
 
-  findManyVillain(request: Observable<VillainById>): Observable<Villain>;
+  findManyVillain(request: Observable<VillainById>, ctx?: Context): Observable<Villain>;
 
 }
 
