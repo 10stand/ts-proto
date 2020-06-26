@@ -20,6 +20,12 @@ export interface Villain {
   name: string;
 }
 
+export interface DataLoaders {
+
+  getDataLoader<T>(identifier: string, constructorFn: () => T): T;
+
+}
+
 export interface HeroServiceController<Context extends DataLoaders> {
 
   findOneHero(request: HeroById, ctx?: Context): Observable<Hero>;

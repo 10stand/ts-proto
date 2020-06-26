@@ -4,6 +4,7 @@
 [![GitHub Actions](https://github.com/stephenh/ts-proto/workflows/Build/badge.svg)](https://github.com/stephenh/ts-proto/actions)
 
 # ts-proto
+Checkout `build.sh`
 
 > `ts-proto` transforms your `.proto` files into strong typed `typescript` files!
 
