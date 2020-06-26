@@ -1,5 +1,5 @@
 /node_modules/
-/build/
+# /build/
 /.idea
 /integration/*/pbjs.js
 /integration/*/pbjs.d.ts
