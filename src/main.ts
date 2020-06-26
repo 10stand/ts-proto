@@ -1146,13 +1146,14 @@ function generateNestjsServiceController(
     }
 
     let requestFn = FunctionSpec.create(methodDesc.name);
-    if (options.useContext) {
-      requestFn = requestFn.addParameter('ctx', TypeNames.typeVariable('Context'));
-    }
     const info = sourceInfo.lookup(Fields.service.method, index);
     maybeAddComment(info, (text) => (requestFn = requestFn.addJavadoc(text)));
 
     requestFn = requestFn.addParameter('request', requestType(typeMap, methodDesc, options));
+
+    if (options.useContext) {
+      requestFn = requestFn.addParameter('ctx?', TypeNames.typeVariable('Context'));
+    }
 
     // Use metadata as last argument for interface only configuration
     if (options.addGrpcMetadata) {
@@ -1183,7 +1184,7 @@ function generateNestjsServiceController(
         const name = batchMethod.methodDesc.name.replace('Batch', 'Get');
         let batchFn = FunctionSpec.create(name);
         if (options.useContext) {
-          batchFn = batchFn.addParameter('ctx', TypeNames.typeVariable('Context'));
+          batchFn = batchFn.addParameter('ctx?', TypeNames.typeVariable('Context'));
         }
         batchFn = batchFn.addParameter(singular(batchMethod.inputFieldName), batchMethod.inputType);
         batchFn = batchFn.returns(TypeNames.PROMISE.param(batchMethod.outputType));
@@ -1213,13 +1214,14 @@ function generateNestjsServiceClient(
     }
 
     let requestFn = FunctionSpec.create(methodDesc.name);
-    if (options.useContext) {
-      requestFn = requestFn.addParameter('ctx', TypeNames.typeVariable('Context'));
-    }
     const info = sourceInfo.lookup(Fields.service.method, index);
     maybeAddComment(info, (text) => (requestFn = requestFn.addJavadoc(text)));
 
     requestFn = requestFn.addParameter('request', requestType(typeMap, methodDesc, options));
+
+    if (options.useContext) {
+      requestFn = requestFn.addParameter('ctx?', TypeNames.typeVariable('Context'));
+    }
 
     // Use metadata as last argument for interface only configuration
     if (options.addGrpcMetadata) {
