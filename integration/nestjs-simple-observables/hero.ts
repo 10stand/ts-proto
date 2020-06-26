@@ -28,9 +28,9 @@ export interface DataLoaders {
 
 export interface HeroServiceController<Context extends DataLoaders> {
 
-  findOneHero(request: HeroById, ctx?: Context): Observable<Hero>;
+  findOneHero(request: HeroById, ctx?: Context): Promise<Hero> | Observable<Hero> | Hero;
 
-  findOneVillain(request: VillainById, ctx?: Context): Observable<Villain>;
+  findOneVillain(request: VillainById, ctx?: Context): Promise<Villain> | Observable<Villain> | Villain;
 
   findManyVillain(request: Observable<VillainById>, ctx?: Context): Observable<Villain>;
 

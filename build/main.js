@@ -49,6 +49,9 @@ function generateFile(typeMap, fileDesc, parameter) {
     });
     // If nestJs=true export [package]_PACKAGE_NAME and [service]_SERVICE_NAME const
     if (options.nestJs) {
+        if (options.useContext) {
+            file = file.addInterface(generateDataLoadersType());
+        }
         file = file.addCode(ts_poet_1.CodeBlock.empty().add(`export const %L = '%L'`, `${camelToSnake(fileDesc.package.replace(/\./g, '_'))}_PACKAGE_NAME`, fileDesc.package));
     }
     if (options.outputEncodeMethods || options.outputJsonMethods) {

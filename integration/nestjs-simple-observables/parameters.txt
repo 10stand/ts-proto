@@ -1,1 +1,1 @@
-nestJs=true,returnObservable=true,useContext=true
+nestJs=true,useOptionals=true,useContext=true,returnObservable=false,addGrpcMetadata=false,lowerCaseServiceMethods=true
