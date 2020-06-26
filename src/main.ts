@@ -111,6 +111,9 @@ export function generateFile(typeMap: TypeMap, fileDesc: FileDescriptorProto, pa
 
   // If nestJs=true export [package]_PACKAGE_NAME and [service]_SERVICE_NAME const
   if (options.nestJs) {
+    if (options.useContext) {
+      file = file.addInterface(generateDataLoadersType());
+    }
     file = file.addCode(
       CodeBlock.empty().add(
         `export const %L = '%L'`,

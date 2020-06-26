@@ -55,7 +55,7 @@ exports.defaultOptions = defaultOptions;
 function optionsFromParameter(parameter) {
     const options = defaultOptions();
     if (parameter) {
-        if (parameter.includes('context=true')) {
+        if (parameter.includes('useContext=true')) {
             options.useContext = true;
         }
         if (parameter.includes('snakeToCamel=false')) {
