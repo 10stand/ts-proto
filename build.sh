@@ -3,5 +3,5 @@
 ./pbjs.sh
 ./integration/pbjs.sh
 (cd ./integration || exit; ./codegen.sh)
-
-yarn test
+# yarn test
+yarn build

@@ -173,7 +173,7 @@ interface Rpc<Context> {
 
 }
 
-export interface DataLoaders {
+interface DataLoaders {
 
   getDataLoader<T>(identifier: string, constructorFn: () => T): T;
 

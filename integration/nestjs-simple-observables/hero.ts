@@ -20,7 +20,7 @@ export interface Villain {
   name: string;
 }
 
-export interface DataLoaders {
+interface DataLoaders {
 
   getDataLoader<T>(identifier: string, constructorFn: () => T): T;
 

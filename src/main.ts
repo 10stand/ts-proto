@@ -1472,7 +1472,7 @@ function generateDataLoadersType(): InterfaceSpec {
     .addParameter('identifier', TypeNames.STRING)
     .addParameter('constructorFn', TypeNames.lambda2([], TypeNames.typeVariable('T')))
     .returns(TypeNames.typeVariable('T'));
-  return InterfaceSpec.create('DataLoaders').addModifiers(Modifier.EXPORT).addFunction(fn);
+  return InterfaceSpec.create('DataLoaders').addFunction(fn);
 }
 
 function requestType(typeMap: TypeMap, methodDesc: MethodDescriptorProto, options: Options): TypeName {
